@@ -10,5 +10,11 @@ def members(request):
 
 # Sample view
 def sample(request):
-    message = "This content is coming from sample view of members application"
-    return HttpResponse(message)
+    template = loader.get_template("sample.html")
+    return HttpResponse(template.render())
+
+# Worksheet13 view
+def worksheet13(request):
+    template = loader.get_template("worksheet13.html")
+    return HttpResponse(template.render())
+    
