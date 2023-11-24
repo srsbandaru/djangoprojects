@@ -25,4 +25,12 @@ def sample(request):
 def worksheet13(request):
     template = loader.get_template("worksheet13.html")
     return HttpResponse(template.render())
-    
+
+# details view
+def details(request, id):
+    myMember = Member.objects.get(id=id)
+    template = loader.get_template("details.html")
+    context = {
+        "myMember":myMember
+    }
+    return HttpResponse(template.render(context, request))

@@ -9,7 +9,9 @@
         <h1>Members</h1>
         <ul>
             {%for member in membersList%}
+            <a href="details/{{member.id}}">
                 <li>{{member.fName}} {{member.lName}}</li>
+            </a>  
             {%endfor%}
         </ul>
     </body>
