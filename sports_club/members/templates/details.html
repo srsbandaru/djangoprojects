@@ -1,14 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Sports Club - Member Details</title>
-    </head>
-    <body>
-        <h1>{{myMember.fName}} {{myMember.lName}}</h1>
-        <p>Phone Number - {{myMember.mobileNumber}}</p>
-        <p>Joined Date - {{myMember.joinedDate}}</p>
-        <p>Back to <a href="/members">Members</a></p>
-    </body>
-</html>
+{% extends "master.html" %}
+
+{% block title %}
+    Sports Club - Member Details
+{% endblock title %}
+
+{% block content %}
+    <h1>{{myMember.fName}} {{myMember.lName}}</h1>
+    <p>Phone Number - {{myMember.mobileNumber}}</p>
+    <p>Joined Date - {{myMember.joinedDate}}</p>
+    <p>Back to <a href="/members">Members</a></p>
+{% endblock content %}
+        

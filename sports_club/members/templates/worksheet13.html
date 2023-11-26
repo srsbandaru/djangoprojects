@@ -1,17 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Homographs</title>
-        <style>
+{% extends "master.html" %}
+
+{% block title %}
+    Homographs
+{% endblock title %}
+
+{% block content %}
+    <style>
             u
             {
                 color: red;
             }
         </style>
-    </head>
-    <body>
         <h1>ENGLISH</h1>
         <p>Add '-ing' to the words given in the box and use them in the sentences given below:</p>
         <table border="1">
@@ -80,5 +79,5 @@
                 <li>I have given tip to the waiter in <u>addition</u> to actual bill amount.</li>
             </ol>
         </ol>
-    </body>
-</html>
+{% endblock content %}
+        
