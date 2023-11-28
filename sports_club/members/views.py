@@ -16,16 +16,6 @@ def members(request):
     }
     return HttpResponse(template.render(context, request))
 
-# Sample view
-def sample(request):
-    template = loader.get_template("sample.html")
-    return HttpResponse(template.render())
-
-# Worksheet13 view
-def worksheet13(request):
-    template = loader.get_template("worksheet13.html")
-    return HttpResponse(template.render())
-
 # details view
 def details(request, id):
     myMember = Member.objects.get(id=id)
@@ -34,3 +24,8 @@ def details(request, id):
         "myMember":myMember
     }
     return HttpResponse(template.render(context, request))
+
+# main view
+def main(reqeust):
+    template = loader.get_template("main.html")
+    return HttpResponse(template.render())
