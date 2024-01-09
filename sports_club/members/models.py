@@ -8,8 +8,4 @@ class Member(models.Model):
     lName = models.CharField(max_length=255)
     mobileNumber = models.IntegerField(null=True)
     joinedDate = models.DateField(null=True)
-# Students model 
-class Students(models.Model):
-    studentName = models.CharField(max_length=255)
-    studentAge = models.IntegerField(null=True)
-    studentEducation = models.CharField(max_length=255)
+
