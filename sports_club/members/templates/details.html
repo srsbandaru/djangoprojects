@@ -1,13 +1,14 @@
-{% extends "master.html" %}
+{% extends 'master.html' %}
 
 {% block title %}
     Sports Club - Member Details
-{% endblock title %}
+{% endblock %}
+    
+ {% block content %}
+    <div class="mycard">
+        <h1>{{ myMember.fName }} {{ myMember.lName }}</h1>
 
-{% block content %}
-    <h1>{{myMember.fName}} {{myMember.lName}}</h1>
-    <p>Phone Number - {{myMember.mobileNumber}}</p>
-    <p>Joined Date - {{myMember.joinedDate}}</p>
-    <p>Back to <a href="/members">Members</a></p>
-{% endblock content %}
-        
+        <p>Mobile Number: {{ myMember.mobileNumber }}</p>
+        <p>Member since: {{ myMember.joinedDate }}</p>
+    </div>
+ {% endblock content %}
