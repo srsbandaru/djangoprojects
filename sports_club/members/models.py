@@ -9,3 +9,5 @@ class Member(models.Model):
     mobileNumber = models.IntegerField(null=True)
     joinedDate = models.DateField(null=True)
 
+    def __str__(self):
+        return f"{self.fName} {self.lName}"
