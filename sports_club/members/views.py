@@ -26,6 +26,16 @@ def details(request, id):
     return HttpResponse(template.render(context, request))
 
 # main view
-def main(reqeust):
+def main(request):
     template = loader.get_template("main.html")
     return HttpResponse(template.render())
+
+# test view
+def test(request):
+    template = loader.get_template("test.html")
+    context = {
+        'firstName':"Sriram Surya",
+        'lastName':"Bandaru"
+    }
+    return HttpResponse(template.render(context, request))
+    
