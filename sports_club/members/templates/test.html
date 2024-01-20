@@ -5,12 +5,19 @@
     </h1>
 {% endwith %}
 
-{% with welcomeText=1 %}
+{% with welcomeText=greeting %}
     {% if welcomeText == 1 %}
         <p>
             Hello {{firstName}} {{lastName}}, how are you?
         </p>
-    
+    {% elif welcomeText == 2 %}
+        <p>
+            Welcome {{firstName}} {{lastName}}, how are you?
+        </p>
+    {% else %}
+        <p>
+            Thank you {{firstName}} {{lastName}}, see you again.
+        </p>
     {% endif %}
 {% endwith %}
 

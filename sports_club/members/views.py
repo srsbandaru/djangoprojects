@@ -35,7 +35,8 @@ def test(request):
     template = loader.get_template("test.html")
     context = {
         'firstName':"Sriram Surya",
-        'lastName':"Bandaru"
+        'lastName':"Bandaru",
+        'greeting':3
     }
     return HttpResponse(template.render(context, request))
     
