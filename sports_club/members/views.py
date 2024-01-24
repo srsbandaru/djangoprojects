@@ -36,7 +36,8 @@ def test(request):
     context = {
         'firstName':"Sriram Surya",
         'lastName':"Bandaru",
-        'greeting':3
+        'greeting':0,
+        'languagesKnown':["English", "Telugu"]
     }
     return HttpResponse(template.render(context, request))
     

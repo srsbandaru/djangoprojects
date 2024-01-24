@@ -6,7 +6,7 @@
 {% endwith %}
 
 {% with welcomeText=greeting %}
-    {% if welcomeText == 1 %}
+    {% if welcomeText == 1 %} 
         <p>
             Hello {{firstName}} {{lastName}}, how are you?
         </p>
@@ -21,3 +21,23 @@
     {% endif %}
 {% endwith %}
 
+{% if "French" in languagesKnown %}
+    <p>
+        He can speak in French.
+    </p>
+{% else %}
+    <p>
+        He cannot speak in French.
+    </p>
+{% endif %}
+
+{% if "Punjabi" not in languagesKnown%}
+    <p>
+        He cannot speak in Punjabi.
+    </p>
+{% else %}
+    <p>
+        He can speak in Punjabi. 
+    </p>
+{% endif %}
+    
