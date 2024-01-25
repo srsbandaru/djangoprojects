@@ -37,7 +37,10 @@ def test(request):
         'firstName':"Sriram Surya",
         'lastName':"Bandaru",
         'greeting':0,
-        'languagesKnown':["English", "Telugu"]
+        'languagesKnown':["English", "Telugu"],
+        'list_1':["Coding", "Reading"],
+        'list_2':["Coding", "Reading"]
     }
     return HttpResponse(template.render(context, request))
+
     
