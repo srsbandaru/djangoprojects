@@ -60,4 +60,41 @@
         Both are not same.
     </p>
 {% endif %}
-    
+
+
+<p>
+Languages Known:
+    <ol>
+    {% for language in languagesKnown %}
+        <li>{{language}}</li>
+    {% endfor %}
+    </ol>
+</p>
+<p>
+List 1 items:
+    <ol>
+    {% for item in list_1 %}
+        <li>{{item}}</li>
+    {% endfor %} 
+    </ol> 
+</p>
+<p>
+Available Cars:
+    <ol>
+    {% for car in cars %}
+        <li><h1>{{car.brand}}</h1></li>
+        <ul>
+            <li><h2>{{car.model}}</h2></li>
+            <li><h3>{{car.year}}</h3></li>
+        </ul>
+    {% endfor %}
+    </ol>
+</p>
+<p>
+Members:
+    <ol>
+    {% for Member in myMembers%}
+        <li><h1>{{Member.fName}} {{Member.lName}}</h1></li>
+    {% endfor %}
+    </ol>
+</p>

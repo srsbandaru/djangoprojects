@@ -32,14 +32,33 @@ def main(request):
 
 # test view
 def test(request):
+    myMembers = Member.objects.all().values()
     template = loader.get_template("test.html")
     context = {
+        'myMembers':myMembers,
         'firstName':"Sriram Surya",
         'lastName':"Bandaru",
         'greeting':0,
         'languagesKnown':["English", "Telugu"],
         'list_1':["Coding", "Reading"],
-        'list_2':["Coding", "Reading"]
+        'list_2':["Coding", "Reading"],
+        'cars':[
+            {
+                'brand':'Subaru',
+                'model':'WRX',
+                'year': 1964
+            },
+            {
+                'brand':'Hyundai',
+                'model':'Palaside',
+                'year':1996
+            },
+            {
+                'brand':'KIA',
+                'model':'Carnival',
+                'year':1986
+            }
+        ]
     }
     return HttpResponse(template.render(context, request))
 
