@@ -58,7 +58,10 @@ def test(request):
                 'model':'Carnival',
                 'year':1986
             }
-        ]
+        ],
+        'hobbies':["Watching Cricket", "Playing Piano", "Swimming", "Listening to music"],
+        'favourites':[]
+        
     }
     return HttpResponse(template.render(context, request))
 

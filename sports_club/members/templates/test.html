@@ -82,14 +82,15 @@ List 1 items:
 Available Cars:
     <ol>
     {% for car in cars %}
-        <li><h1>{{car.brand}}</h1></li>
+        <li><h1>{{car.model}}</h1></li>
         <ul>
-            <li><h2>{{car.model}}</h2></li>
+            <li><h2>{{car.brand}}</h2></li>
             <li><h3>{{car.year}}</h3></li>
         </ul>
     {% endfor %}
     </ol>
 </p>
+
 <p>
 Members:
     <ol>
@@ -97,4 +98,65 @@ Members:
         <li><h1>{{Member.fName}} {{Member.lName}}</h1></li>
     {% endfor %}
     </ol>
+</p>
+<p>
+Members(reversed):
+    <ol>
+    {% for Member in myMembers reversed %}
+        <li><h1>{{Member.fName}} {{Member.lName}}</h1></li>
+    {% endfor %}
+    </ol>
+</p>
+<p>
+Available Cars:
+    <ol>
+    {% for car in cars reversed%}
+        <li><h1>{{car.model}}</h1></li>
+        <ul>
+            <li><h2>{{car.brand}}</h2></li>
+            <li><h3>{{car.year}}</h3></li>
+        </ul>
+    {% endfor %}
+    </ol>
+</p>
+<p>
+Hobbies (Check it is empty or not):
+    <ol>
+    {% for hobby in hobbies %}
+        <li><h1>{{hobby}}</h1></li>
+    {% empty %}
+        <li>N/A</li>
+    {% endfor %}
+    </ol>
+</p>
+<p>
+Favourites (Check it is empty or not):
+    <ol>
+    {% for favourite in favourites %}
+        <li><h1>{{favourite}}</h1></li>
+    {% empty %}
+        <li>N/A</li>
+    {% endfor %}
+    </ol>
+</p>
+<h1>Loop variables</h1>
+<p>
+<h3>forloop.counter:</h3>
+    <ul>
+    {% for hobby in hobbies %}
+        <li>Hobby {{forloop.counter}}: {{hobby}}</li>
+    {% empty %}
+        <li>N/A</li>
+    {% endfor %}
+    </ul>
+</p>
+<p>
+<h3>forloop.counter0:</h3>
+    <ul>
+    {% for hobby in hobbies %}
+        <li>Hobby {{forloop.counter0}}: {{hobby}}</li>
+    {% empty %}
+        <li>N/A</li>
+    {% endfor %}
+    </ul>
 </p>
