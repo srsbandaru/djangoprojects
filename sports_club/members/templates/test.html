@@ -160,3 +160,38 @@ Favourites (Check it is empty or not):
     {% endfor %}
     </ul>
 </p>
+<p>
+<h3>forloop.revcounter:</h3>
+    <ul>
+    {% for hobby in hobbies %}
+        <li>Hobby {{forloop.revcounter}}: {{hobby}}</li>
+    {% empty %}
+        <li>N/A</li>
+    {% endfor %}
+    </ul>
+</p>
+<p>
+<h3>forloop.revcounter0:</h3>
+    <ul>
+    {% for hobby in hobbies %}
+        <li>Hobby {{forloop.revcounter0}}: {{hobby}}</li>
+    {% empty %}
+        <li>N/A</li>
+    {% endfor %}
+    </ul>
+</p>
+<p>
+<h3>forloop.first and forloop.last: </h3>
+    <ul>
+    {% for hobby in hobbies %}
+        <li {% if forloop.first %}
+                style = "color:green"
+            {% elif forloop.last %}
+                style = "color:red"
+            {% else %}
+                style = "color:orange"
+            {% endif %}
+        >Hobby: {{hobby}}</li>
+    {% endfor %}
+    </ul>
+</p>

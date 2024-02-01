@@ -1,1 +1,5 @@
-source ../bin/activate
+clear
+echo "start"
+cd ..
+./bin/activate
+echo "end"
