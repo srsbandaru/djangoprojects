@@ -142,6 +142,7 @@ Favourites (Check it is empty or not):
 <h1>Loop variables</h1>
 <p>
 <h3>forloop.counter:</h3>
+The current iteration, starting at 1.
     <ul>
     {% for hobby in hobbies %}
         <li>Hobby {{forloop.counter}}: {{hobby}}</li>
@@ -152,6 +153,7 @@ Favourites (Check it is empty or not):
 </p>
 <p>
 <h3>forloop.counter0:</h3>
+The current iteration, starting at 0.
     <ul>
     {% for hobby in hobbies %}
         <li>Hobby {{forloop.counter0}}: {{hobby}}</li>
@@ -162,6 +164,7 @@ Favourites (Check it is empty or not):
 </p>
 <p>
 <h3>forloop.revcounter:</h3>
+The current iteration if you start at the end and count backwards, ending up at 1.
     <ul>
     {% for hobby in hobbies %}
         <li>Hobby {{forloop.revcounter}}: {{hobby}}</li>
@@ -172,6 +175,7 @@ Favourites (Check it is empty or not):
 </p>
 <p>
 <h3>forloop.revcounter0:</h3>
+The current iteration if you start at the end and count backwards, ending up at 0.
     <ul>
     {% for hobby in hobbies %}
         <li>Hobby {{forloop.revcounter0}}: {{hobby}}</li>
@@ -182,6 +186,9 @@ Favourites (Check it is empty or not):
 </p>
 <p>
 <h3>forloop.first and forloop.last: </h3>
+<b>forloop.first:</b> Allows you to test if the loop is on its first iteration.
+<br>
+<b>forloop.last:</b> Allows you to test if the loop is on its last iteration. 
     <ul>
     {% for hobby in hobbies %}
         <li {% if forloop.first %}
@@ -191,7 +198,8 @@ Favourites (Check it is empty or not):
             {% else %}
                 style = "color:orange"
             {% endif %}
-        >Hobby: {{hobby}}</li>
+        >Hobby {{forloop.counter}}: {{hobby}}</li>
     {% endfor %}
     </ul>
 </p>
+{% include "footer.html" with developerName="Sriram Surya Bandaru" %}
