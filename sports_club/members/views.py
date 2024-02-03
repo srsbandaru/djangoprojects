@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 from .models import Member
+from .forms import MemberForm
 
 # Create your views here.
 # Members view 
@@ -29,6 +30,15 @@ def details(request, id):
 def main(request):
     template = loader.get_template("main.html")
     return HttpResponse(template.render())
+
+# create member view
+def create_member(request):
+    template = "member_form.html"
+    form = MemberForm()
+    context = {
+        'form':form
+    }
+    return render(request, template, context)
 
 # test view
 def test(request):
@@ -63,6 +73,7 @@ def test(request):
         'favourites':[]
         
     }
+
     return HttpResponse(template.render(context, request))
 
     
