@@ -5,4 +5,5 @@ class MemberForm(ModelForm):
     class Meta:
         model = Member
         fields = "__all__"
+        # fields = ["fName","lName"]
 

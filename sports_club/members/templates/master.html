@@ -9,8 +9,10 @@
     </head>
     <body>
         <div class="topnav">
-            <a href="/">Home</a> 
-            <a href="/members">Members</a>
+            <a href="/">Home</a> |
+            <a href="/members">Members</a> |
+            {% comment %} <a href="members/create">Create Member</a> {% endcomment %}
+            <a href="{% url 'members:create_member' %}">Create Member</a>
         </div>
         {% block content %}
         {% endblock %}

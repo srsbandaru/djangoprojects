@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.template import loader
 from .models import Member
 from .forms import MemberForm
+from django.views import View
 
 # Create your views here.
 # Members view 
@@ -32,14 +33,34 @@ def main(request):
     return HttpResponse(template.render())
 
 # create member view
-def create_member(request):
-    template = "member_form.html"
-    form = MemberForm()
-    context = {
-        'form':form
-    }
-    return render(request, template, context)
+# def create_member(request):
+#     template = "member_form.html"
+#     form = MemberForm()
+#     context = {
+#         'form':form
+#     }
+#     return render(request, template, context)
 
+class create_member(View):
+    template = "member_form.html"
+    success_url = "members:main"
+
+    def get(self, request):
+        form = MemberForm()
+        context = {
+            'form':form
+        }
+        return render(request, self.template, context)
+    def post(self, request):
+        form = MemberForm(request.POST)
+        if not form.is_valid():
+            context = {
+                'form':form
+            }
+            return render(request, self.template, context)
+        form.save()
+        return redirect(self.success_url)
+    
 # test view
 def test(request):
     myMembers = Member.objects.all().values()
