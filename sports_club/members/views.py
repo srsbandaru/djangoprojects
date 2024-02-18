@@ -4,6 +4,7 @@ from django.template import loader
 from .models import Member
 from .forms import MemberForm
 from django.views import View
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 # Members view 
@@ -41,7 +42,7 @@ def main(request):
 #     }
 #     return render(request, template, context)
 
-class create_member(View):
+class create_member(LoginRequiredMixin, View):
     template = "member_form.html"
     success_url = "members:main"
 
@@ -61,6 +62,7 @@ class create_member(View):
         form.save()
         return redirect(self.success_url)
     
+
 # test view
 def test(request):
     myMembers = Member.objects.all().values()

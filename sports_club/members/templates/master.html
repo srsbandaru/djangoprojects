@@ -15,7 +15,12 @@
             <a href="/">Home</a> |
             <a href="/members">Members</a> |
             {% comment %} <a href="members/create">Create Member</a> {% endcomment %}
-            <a href="{% url 'members:create_member' %}">Create Member</a>
+            <a href="{% url 'members:create_member' %}">Create Member</a> |
+            {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}?next={{request.path}}">Logout</a>
+            {% else %}
+                <a href="{% url 'login' %}?next={{request.path}}">Login</a>
+            {% endif %}
         </div>
         {% block content %}
         {% endblock %}
