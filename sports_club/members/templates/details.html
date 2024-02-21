@@ -10,5 +10,6 @@
 
         <p>Mobile Number: {{ myMember.mobileNumber }}</p>
         <p>Member since: {{ myMember.joinedDate }}</p>
+        <button type="submit" onclick="window.location='{% url 'members:update_member' myMember.id %}'">Update</button>
     </div>
  {% endblock content %}

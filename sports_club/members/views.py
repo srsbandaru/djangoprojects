@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.template import loader
 from .models import Member
@@ -42,6 +42,7 @@ def main(request):
 #     }
 #     return render(request, template, context)
 
+# Create Member
 class create_member(LoginRequiredMixin, View):
     template = "member_form.html"
     success_url = "members:main"
@@ -62,6 +63,29 @@ class create_member(LoginRequiredMixin, View):
         form.save()
         return redirect(self.success_url)
     
+# Update member
+class update_member(LoginRequiredMixin, View):
+    model = Member
+    template = "member_form.html"
+    success_url = "members:members"
+
+    def get(self, request, pk):
+        member = get_object_or_404(self.model, id=pk)
+        form = MemberForm(instance=member)
+        context = {
+            'form':form
+        }
+        return render(request, self.template, context)
+    def post(self, request, pk):
+        member = get_object_or_404(self.model, id=pk)
+        form = MemberForm(request.POST, instance=member)
+        if not form.is_valid():
+            context = {
+                'form':form
+            }
+            return render(request, self.template, context)
+        form.save()
+        return redirect(self.success_url)
 
 # test view
 def test(request):
