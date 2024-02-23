@@ -86,6 +86,24 @@ class update_member(LoginRequiredMixin, View):
             return render(request, self.template, context)
         form.save()
         return redirect(self.success_url)
+    
+# Delete member
+class delete_member(LoginRequiredMixin, View):
+    model = Member
+    template = "member_confirm_delete.html"
+    success_url = "members:members"
+
+    def get(self, request, pk):
+        member = get_object_or_404(self.model, id=pk)
+        context = {
+            'member':member
+        }
+        return render(request, self.template, context)
+    
+    def post(self, request, pk):
+        member = get_object_or_404(self.model, id=pk)
+        member.delete()
+        return redirect(self.success_url)
 
 # test view
 def test(request):

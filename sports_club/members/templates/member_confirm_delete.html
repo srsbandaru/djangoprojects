@@ -1,0 +1,16 @@
+{% extends "master.html" %}
+{% block title %}
+    Member confirm delete
+{% endblock title %}
+{% block content %}
+    <div class="container">
+        <h1>Delete Member</h1>
+        <h3>Are you sure you want to delete the sports club member {{member.fName}} {{member.lName}}?</h3>
+        <form class="m-3" action="" method="post">
+            {% csrf_token %}
+            <input class="btn btn-danger" type="submit" value="Delete">
+            <button class="btn btn-warning" type="submit" 
+        onclick="window.location = '{% url 'members:details' member.id %}';return false;">Cancel</button>
+        </form>
+    </div>
+{% endblock content %}
